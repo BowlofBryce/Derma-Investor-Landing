@@ -17,6 +17,10 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NODE_ENV === 'production'
+    ? 'https://dermafinance.com'
+    : 'http://localhost:3000'
+  ),
   title: 'Derma Finance | Tattoo Now. Pay Over Sessions.',
   description: 'The first BNPL purpose-built for multi-session services. Approve once, capture each visit only after it happens. Lower risk, higher completion, transparent terms.',
   keywords: ['BNPL', 'Buy Now Pay Later', 'tattoo financing', 'multi-session financing', 'merchant financing'],
