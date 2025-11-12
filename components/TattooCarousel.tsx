@@ -18,7 +18,8 @@ export function TattooCarousel() {
     if (!carousel) return;
 
     let scrollPosition = 0;
-    const scrollSpeed = 0.5;
+    const isMobile = window.innerWidth < 768;
+    const scrollSpeed = isMobile ? 1.0 : 0.5;
     let animationFrame: number;
 
     const animate = () => {

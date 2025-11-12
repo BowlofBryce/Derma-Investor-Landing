@@ -85,7 +85,7 @@
   }
 
   .glass-card-fullwidth {
-    background: rgba(17, 18, 20, 0.55);
+    background: rgba(17, 18, 20, 0.25);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
   }
