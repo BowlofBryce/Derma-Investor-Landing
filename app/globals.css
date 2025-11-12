@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #0B0B0C;
+    --surface: #111214;
+    --card-glass: rgba(255, 255, 255, 0.06);
+    --fg: #F5F7FA;
+    --muted: #A6AAB2;
+    --gold: #D4AF37;
+    --gold-600: #B8962F;
+    --line: #1C1E22;
+
+    --background: 11 4% 4%;
+    --foreground: 210 20% 97%;
+    --card: 216 9% 7%;
+    --card-foreground: 210 20% 97%;
+    --popover: 216 9% 7%;
+    --popover-foreground: 210 20% 97%;
+    --primary: 45 74% 52%;
+    --primary-foreground: 216 9% 7%;
+    --secondary: 216 9% 7%;
+    --secondary-foreground: 210 20% 97%;
+    --muted: 218 6% 66%;
+    --muted-foreground: 218 6% 66%;
+    --accent: 45 74% 52%;
+    --accent-foreground: 216 9% 7%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 97%;
+    --border: 216 9% 12%;
+    --input: 216 9% 12%;
+    --ring: 45 74% 52%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-[var(--bg)] text-[var(--fg)] antialiased;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-jakarta), var(--font-inter), system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    @apply bg-[var(--gold)] text-[var(--bg)];
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #F4E3B0 0%, #D4AF37 40%, #B8962F 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding-bottom: 0.1em;
+  }
+
+  .border-gradient-gold {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--bg), var(--bg)) padding-box,
+                linear-gradient(135deg, #F4E3B0 0%, #D4AF37 40%, #B8962F 100%) border-box;
+  }
+
+  .glass-card {
+    background: var(--card-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+  }
+
+  .glass-card-fullwidth {
+    background: rgba(17, 18, 20, 0.55);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
